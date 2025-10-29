@@ -14,7 +14,7 @@ except ModuleNotFoundError as exc:  # pragma: no cover - dependency hint
         "Install it with 'pip install -r requirements.txt'."
     ) from exc
 
-from svg_to_pdf import convert_svg_to_pdf
+from svg_to_pdf import DEFAULT_SVG_DPI, convert_svg_to_pdf
 
 
 class SvgToPdfApp(TkinterDnD.Tk):
@@ -27,7 +27,7 @@ class SvgToPdfApp(TkinterDnD.Tk):
         self.minsize(420, 320)
 
         self.output_dir_var = tk.StringVar()
-        self.dpi_var = tk.DoubleVar(value=96.0)
+        self.dpi_var = tk.DoubleVar(value=DEFAULT_SVG_DPI)
 
         self._build_ui()
 

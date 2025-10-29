@@ -5,8 +5,14 @@ A small Python-based command-line utility for converting Scalable Vector Graphic
 ## Requirements
 
 - Python 3.9+
-- [CairoSVG](https://cairosvg.org/) Python package (installed via `pip`)
+- [ReportLab](https://www.reportlab.com/dev/) (installed via `pip`)
+- [svglib](https://pypi.org/project/svglib/) SVG parser (installed via `pip`)
 - [tkinterdnd2](https://github.com/pmgagne/tkinterdnd2) for drag-and-drop GUI support
+
+> **Why not CairoSVG?**
+> The original implementation depended on CairoSVG, which requires additional native
+> Cairo libraries on Windows. Switching to ReportLab + svglib keeps everything installable
+> directly from PyPI wheels so no external DLLs are needed.
 
 ## Installation
 
@@ -56,7 +62,7 @@ Convert multiple files to a directory (created automatically if it does not exis
 python svg_to_pdf.py artwork1.svg artwork2.svg -o converted\
 ```
 
-Adjust the rasterization DPI (defaults to 96):
+Adjust the output DPI scaling (defaults to 96):
 
 ```powershell
 python svg_to_pdf.py diagram.svg --dpi 144
