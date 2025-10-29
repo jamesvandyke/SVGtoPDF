@@ -68,6 +68,19 @@ Adjust the output DPI scaling (defaults to 96):
 python svg_to_pdf.py diagram.svg --dpi 144
 ```
 
+## Creating a standalone Windows executable
+
+To distribute the drag-and-drop app without requiring Python on the target machine,
+build a single-file executable with [PyInstaller](https://pyinstaller.org/). Run the
+following command from the project root inside your virtual environment:
+
+```powershell
+pyinstaller svg_to_pdf_gui.py --name SVGtoPDF --onefile --windowed
+```
+
+The generated executable will be located in the `dist\SVGtoPDF.exe` directory. Copy the
+entire `dist` folder to another Windows computer to run the app.
+
 ## Development
 
 Run a quick syntax check:
